@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var weight=300;
+			var whichEmotion=-1;
+			function loseWeight() {
+				document.getElementById("pet").width=weight;
+				document.getElementById("pet").height=weight;
+				document.getElementById("weightLabel").innerHTML="Weight: "+weight;
+				if (weight<100) {
+					alert("You die!");
+				} else {
+					weight-=2;
+					setTimeout("loseWeight()",3000);
+				}
+			}
+			function feedMe() {
+				document.getElementById("cheese").src="cheese.png";
+				document.getElementById("chips").src="chips.png";
+				document.getElementById("iceCream").src="iceCream.png";
+				document.getElementById("meat").src="meat.png";
+				document.getElementById("potato").src="potato.png";
+			}
+			function addCheese() {
+				document.getElementById("cheese").src="";
+				alert("yummy!");
+				weight+=20;
+			}
+			function addChips() {
+				document.getElementById("chips").src="";
+				alert("yummy!");
+				weight+=15;
+			}
+			function addIceCream() {
+				document.getElementById("iceCream").src="";
+				alert("yummy!");
+				weight+=25;
+			}
+			function addMeat() {
+				document.getElementById("meat").src="";
+				alert("yummy!");
+				weight+=40;
+			}
+			function addPotato() {
+				document.getElementById("potato").src="";
+				alert("yummy!");
+				weight+=10;
+			}
+			function emotions() {
+				whichEmotion=Math.floor(Math.random()*2+1);
+				if (whichEmotion==1) {
+					document.getElementById("pet").src="sad.png";
+				}
+				if (whichEmotion==2) 
+			}
+		</script>
+	</head>
+	<body onload="loseWeight(); emotions()">
+		<img id="pet" href="happy.png" height="300px" width="300px"/>
+		<img id="cheese" onclick="addCheese()" border="0" height="100" width="100"/>
+		<img id="chips" onclick="addChips()" border="0" height="100" width="100"/>
+		<img id="iceCream" onclick="addIceCream()" border="0" height="100" width="100"/>
+		<img id="meat" onclick="addMeat()" border="0" height="100" width="100"/>
+		<img id="potato" onclick="addPotato" border="0" height="100" width="100"/>
+		<br/>
+		<p onclick="feedMe()">Feed Me</p>
+		<p id="weightLabel"/>
+	</body>
+</html>
